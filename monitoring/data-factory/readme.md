@@ -31,8 +31,17 @@ https://docs.microsoft.com/en-us/azure/data-factory/data-movement-security-consi
 ## Performance Monitoring
 Performance Monitoring on Azure Data Factory can be done using the Built-in Monitoring [docs](https://docs.microsoft.com/en-us/azure/data-factory/monitor-visually) or with Azure Monitor [docs](https://docs.microsoft.com/en-us/azure/data-factory/monitor-using-azure-monitor). For Pipeline Runs and Acitivites on the pipeline, using Built-in Monitoring will suffice, however when looking for more detailed metrics around resource usage, it is recommended that Azure Monitor is used.
 
+If logs need to be kept past a 45 day timeframe, we will need to use one of the following strategies to store them:
 
-</b>Pipeline Runs</b>
+Storage Account: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
+Event Hub: Stream the logs to Azure Event Hubs. The logs become input to a partner service/custom analytics solution like Power BI.
+Log Analytics: Analyze the logs with Log Analytics. The Data Factory integration with Azure Monitor is useful in the following scenarios:
+You want to write complex queries on a rich set of metrics that are published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
+You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
+
+
+Pipeline Runs
+
 
 
 
